@@ -1,4 +1,0 @@
-2015-10-21 15:08:53,783 - aee    - INFO    : Creating mongodb record with run id 2015-10-21_15:08:53.783865_DE_favorites_spider
-2015-10-21 15:08:55,804 - aee    - INFO    : started crawl with run id: 2015-10-21_15:08:53.783865_DE_favorites_spider
-2015-10-21 15:08:55,804 - aee    - INFO    : 1 Instances will be launched for 2 dockets of state DE
-/bin/sh: /home/arbisoft/puctools/bin/instance_scheduler.py: No such file or directory
