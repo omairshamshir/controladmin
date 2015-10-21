@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+
+{% block title %} Extraction Counts {% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Extraction Counts</h1>
+
+            <p>
+                Extension:
+                <button type="button" class="btn btn-outline btn-primary" onclick="update_graph('')">All</button>
+                <button type="button" class="btn btn-outline btn-success" onclick="update_graph('pdf')">PDF
+                </button>
+                <button type="button" class="btn btn-outline btn-warning" onclick="update_graph('doc')">DOC
+                </button>
+                <button type="button" class="btn btn-outline btn-danger" onclick="update_graph('xls')">XLS
+                </button>
+                <button type="button" class="btn btn-outline btn-toolbar" onclick="update_graph('ppt')">PPT
+                </button>
+
+            </p>
+        </div>
+
+        <!-- /.col-lg-12 -->
+    </div>
+    <br>
+    <hr>
+    <div>
+        <canvas id="canvas" height="200" width="600"></canvas>
+    </div>
+
+
+    <script src="/static/charts/Chart.js"></script>
+    <script src="/static/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript">
+
+        var lineChartData = {
+            labels: $.parseJSON('{{ date_labels|safe }}'),
+            datasets: [
+                {
+                    label: "Extraction Counts",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: $.parseJSON('{{ count_stats|safe }}')
+                }
+            ]
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx).Line(lineChartData, {
+                responsive: true
+            });
+        };
+
+
+        function update_graph(extension) {
+            var ext_str = "." + extension;
+            var date_array = $.parseJSON('{{ date_labels|safe }}');
+            var stats = $.parseJSON('{{ extraction_stats|safe }}');
+            var updated_stats = [];
+            var doc_count = 0;
+
+            for (var i = 0; i < date_array.length; i++) {
+                doc_count = 0;
+                for (var s = 0; s < stats[date_array[i]].length; s++) {
+                    if (stats[date_array[i]][s]["extension"] == extension) {
+                        doc_count += 1;
+                    }
+
+                }
+                updated_stats.push(doc_count);
+            }
+
+            var ctx = document.getElementById("canvas").getContext("2d");
+            ctx.clearRect(0, 0, 600, 200);
+            lineChartData.datasets[0].data = updated_stats;
+            window.myLine = new Chart(ctx).Line(lineChartData, {
+                responsive: true
+            });
+
+
+        }
+
+
+    </script>
+{% endblock %}

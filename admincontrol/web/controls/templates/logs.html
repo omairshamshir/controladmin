@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+{% block title %} Log Viewer {% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="col-lg-6">
+            <h2>Scrapyd Jobs</h2>
+
+            <div class="list-group">
+                {% for inst in instances %}
+                    <a href="{{ inst.url }}" class="list-group-item">{{ inst.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <thead>
+                <th><h3>Log</h3></th>
+
+                </thead>
+
+                {% for line in lines %}
+                    {% if line %}
+                        <tr>
+                            <td>
+                                {{ line }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <script src="/static/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setInterval(function () {
+                cache_clear()
+            }, 10000);
+        });
+        function cache_clear() {
+            window.location.reload(true);
+        }
+    </script>
+{% endblock %}

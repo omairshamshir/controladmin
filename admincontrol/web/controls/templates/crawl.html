@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+{% block title %} Crawl {% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="/static/img/favorite.png" alt="...">
+
+                <div class="caption">
+                    <h3>Favorite Crawl</h3>
+
+                    <p>
+                        <button class="btn btn-default" onclick="open_crawl_modal('Favorites')">Start Crawl</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="/static/img/weekly.png" alt="...">
+
+                <div class="caption">
+                    <h3>Weekly Crawl</h3>
+
+                    <p>
+                        <button class="btn btn-default" onclick="open_crawl_modal('Weekly')">Weekly Crawl</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="/static/img/daily.png" alt="...">
+
+                <div class="caption">
+                    <h3>Daily Crawl</h3>
+
+                    <p>
+                        <button class="btn btn-default" onclick="open_crawl_modal('Daily')">Daily Crawl</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="crawl_modal_header" class="modal-title">Start Crawl</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="crawl-form">
+                        <div class="form-group">
+                            <label for="state">State:</label>
+                            <select class="form-control" name="state" id="state">
+                                {% for s in states %}
+                                    <option>{{ s }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <input type="hidden" id="crawl_type" name="crawl_type">
+                        <button id="crawl_button" type="button" class="btn btn-default" onclick="send_crawl_request()">Start</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

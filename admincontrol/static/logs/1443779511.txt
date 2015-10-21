@@ -1,0 +1,23 @@
+2015-10-02 14:51:54,200 - aee    - INFO    : Creating mongodb record with run id 2015-10-02_14:51:54.200807_DE_favorites_spider
+2015-10-02 14:51:57,921 - aee    - INFO    : started crawl with run id: 2015-10-02_14:51:53.871258_DE_favorites_spider
+2015-10-02 14:51:57,922 - aee    - INFO    : 1 Instances will be launched for 2 dockets of state DE
+2015-10-02 14:52:45,212 - aee    - INFO    : Starting Scheduler for crawl type: favorites
+2015-10-02 14:52:45,212 - aee    - INFO    : spawning instance
+2015-10-02 14:52:45,213 - aee    - INFO    : saving ansible launch script log in file: 2015-10-02 14:52:45_212585.txt
+2015-10-02 14:54:34,971 - aee    - INFO    : Instance spawned with ip: 54.173.158.55
+2015-10-02 14:54:34,971 - aee    - INFO    : Time Taken to spawn instance: 0:02:23.735204
+2015-10-02 14:54:34,972 - aee    - INFO    : Creating Temp project directory in path /Users/omairshamshir/distributed_weekly_crawl_temp/9cdba72822274f67a9ee13e7287f88f9
+2015-10-02 14:54:42,013 - aee    - INFO    : Adding Instance ip to redis
+2015-10-02 14:54:43,714 - aee    - INFO    : Adding the ip of the instance to scrapy.cfg
+Traceback (most recent call last):
+  File "/Users/omairshamshir/Documents/github/puctools/bin/instance_scheduler.py", line 241, in <module>
+    main()
+  File "/Users/omairshamshir/Documents/github/puctools/bin/instance_scheduler.py", line 210, in main
+    update_scrapy_cfg(scrapyd_url, proj_path)
+  File "/Users/omairshamshir/Documents/github/puctools/bin/instance_scheduler.py", line 70, in update_scrapy_cfg
+    for line in fileinput.input(scrapy_cfg_path, inplace=1):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/fileinput.py", line 252, in next
+    line = self.readline()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/fileinput.py", line 321, in readline
+    os.rename(self._filename, self._backupfilename)
+OSError: [Errno 2] No such file or directory

@@ -1,0 +1,25 @@
+2015-10-02 15:01:27,704 - aee    - INFO    : Starting favorites crawl for state DE
+2015-10-02 15:01:27,704 - aee    - INFO    : Creating mongodb record with run id 2015-10-02_15:01:27.704516_DE_favorites_spider
+2015-10-02 15:01:30,059 - aee    - INFO    : started crawl with run id: 2015-10-02_15:01:27.704516_DE_favorites_spider
+2015-10-02 15:01:30,059 - aee    - INFO    : 1 Instances will be launched for 2 dockets of state DE
+2015-10-02 15:02:23,104 - aee    - INFO    : Starting Scheduler for crawl type: favorites
+2015-10-02 15:02:23,106 - aee    - INFO    : spawning instance
+2015-10-02 15:02:23,106 - aee    - INFO    : saving ansible launch script log in file: 2015-10-02 15:02:23_106390.txt
+2015-10-02 15:04:02,276 - aee    - INFO    : Instance spawned with ip: 54.88.202.157
+2015-10-02 15:04:02,276 - aee    - INFO    : Time Taken to spawn instance: 0:01:39.170733
+2015-10-02 15:04:02,277 - aee    - INFO    : Creating Temp project directory in path /Users/omairshamshir/distributed_weekly_crawl_temp/6bd0bfc956d54ca2999572837203b6b4
+2015-10-02 15:04:06,556 - aee    - INFO    : Adding Instance ip to redis
+2015-10-02 15:04:08,065 - aee    - INFO    : /Users/omairshamshir/distributed_weekly_crawl_temp/6bd0bfc956d54ca2999572837203b6b4
+2015-10-02 15:04:08,066 - aee    - INFO    : Adding the ip of the instance to scrapy.cfg
+Traceback (most recent call last):
+  File "/Users/omairshamshir/Documents/github/puctools/bin/instance_scheduler.py", line 242, in <module>
+    main()
+  File "/Users/omairshamshir/Documents/github/puctools/bin/instance_scheduler.py", line 211, in main
+    update_scrapy_cfg(scrapyd_url, proj_path)
+  File "/Users/omairshamshir/Documents/github/puctools/bin/instance_scheduler.py", line 71, in update_scrapy_cfg
+    for line in fileinput.input(scrapy_cfg_path, inplace=1):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/fileinput.py", line 252, in next
+    line = self.readline()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/fileinput.py", line 321, in readline
+    os.rename(self._filename, self._backupfilename)
+OSError: [Errno 2] No such file or directory

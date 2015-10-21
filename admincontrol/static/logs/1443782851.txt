@@ -1,0 +1,21 @@
+2015-10-02 15:47:33,805 - aee    - INFO    : Starting favorites crawl for state DE
+2015-10-02 15:47:33,805 - aee    - INFO    : Creating mongodb record with run id 2015-10-02_15:47:33.805338_DE_favorites_spider
+2015-10-02 15:47:35,954 - aee    - INFO    : started crawl with run id: 2015-10-02_15:47:33.805338_DE_favorites_spider
+2015-10-02 15:47:35,954 - aee    - INFO    : 1 Instances will be launched for 2 dockets of state DE
+2015-10-02 15:48:37,665 - aee    - INFO    : Starting Scheduler for crawl type: favorites
+2015-10-02 15:48:37,665 - aee    - INFO    : spawning instance
+2015-10-02 15:48:37,666 - aee    - INFO    : saving ansible launch script log in file: 2015-10-02 15:48:37_666154.txt
+2015-10-02 15:50:23,638 - aee    - INFO    : Instance spawned with ip: 54.84.241.47
+2015-10-02 15:50:23,638 - aee    - INFO    : Time Taken to spawn instance: 0:01:45.972720
+2015-10-02 15:50:23,638 - aee    - INFO    : Creating Temp project directory in path /Users/omairshamshir/distributed_weekly_crawl_temp/75dc4952802b40f38f8d47fd002d8b74
+2015-10-02 15:50:26,507 - aee    - INFO    : Adding Instance ip to redis
+2015-10-02 15:50:28,064 - aee    - INFO    : /Users/omairshamshir/distributed_weekly_crawl_temp/75dc4952802b40f38f8d47fd002d8b74
+2015-10-02 15:50:28,065 - aee    - INFO    : Adding the ip of the instance to scrapy.cfg
+2015-10-02 15:50:38,069 - aee    - INFO    : deploying project
+Packing version 1443783038
+Deploying to project "puc" in http://54.84.241.47:6800/addversion.json
+Server response (200):
+{"status": "ok", "project": "puc", "version": "1443783038", "spiders": 173, "node_name": "ip-172-30-1-243"}
+
+2015-10-02 15:50:46,293 - aee    - INFO    : scheduling Spider, for 2 dockets
+2015-10-02 15:50:48,017 - aee    - INFO    : job scheduled, job_id: 7035d88468f311e58d1b0a08a2c1cbdd

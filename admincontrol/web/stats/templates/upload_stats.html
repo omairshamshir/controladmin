@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+
+{% block title %} Upload Timings {% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Upload Timings</h1>
+
+        </div>
+
+        <!-- /.col-lg-12 -->
+    </div>
+    <br>
+    <hr>
+    <div>
+        <canvas id="canvas" height="200" width="600"></canvas>
+    </div>
+    <br>
+    <hr>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>Average Timings (Seconds)</h3>
+            <br>
+
+            <table class="table table-hover table-bordered table-stripped">
+
+                <tbody>
+                <tr>
+                    <th>Average Job Delay</th>
+                    <td>{{ jsda }}</td>
+
+                </tr>
+                <tr>
+                    <th>Average Upload Time</th>
+                    <td>{{ uta }}</td>
+
+                </tr>
+                <tr>
+                    <th>Average Matcher Time</th>
+                    <td>{{ mta }}</td>
+
+                </tr>
+
+                <tr>
+                    <th> Average Total Time</th>
+                    <td>{{ tta }}</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <script src="/static/charts/Chart.js"></script>
+    <script src="/static/charts/Chart.StackedBar.js"></script>
+
+    <script src="/static/js/jquery-1.11.2.min.js"></script>
+    <script>
+
+        var BarChartData = {
+            labels: $.parseJSON('{{ state_ids|safe }}'),
+            datasets: [
+                {
+                    label: "Job Delay",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: $.parseJSON('{{ job_delays|safe }}')
+                },
+                {
+                    label: "Upload Time",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgb(255,0,0)",
+                    data: $.parseJSON('{{ upload_times|safe }}')
+                },
+                {
+                    label: "Matcher Time",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,175,1)",
+                    data: $.parseJSON('{{ matcher_times|safe }}')
+                }
+            ]
+
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx).StackedBar(BarChartData, {
+                responsive: true
+            });
+        }
+    </script>
+{% endblock %}
