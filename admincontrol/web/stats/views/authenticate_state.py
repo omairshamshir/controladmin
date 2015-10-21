@@ -46,7 +46,8 @@ class AuthenticateState(View):
             "dd_date": date_str,
             "dd_count": count,
             "fav_msg": fav_msg,
-            "weekly_msg": weekly_msg
+            "weekly_msg": weekly_msg,
+            "state": state
 
         })
 
