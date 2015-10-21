@@ -20,7 +20,7 @@ function send_crawl_request() {
         method: 'POST',
         data: $('#crawl-form').serialize()
     }).done(function (response) {
-        location.href = "http://127.0.0.1:8000/cont" + response;
+        location.href = "http://54.225.86.142:8085/" + response;
     }).fail(function () {
 
     });
