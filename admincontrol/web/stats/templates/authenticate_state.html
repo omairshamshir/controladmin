@@ -56,13 +56,25 @@
                     <tbody>
                     <tr>
                         <th>Favorites Crawl</th>
-                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+
+                        {% if fav %}
+                            <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                        {% else %}
+                            <td><img
+                                    src="http://www.clker.com/cliparts/8/3/3/4/1195445190322000997molumen_red_round_error_warning_icon.svg.hi.png"
+                                    width="40" height="40"></td>
+                        {% endif %}
                         <td>{{ fav_msg }}</td>
 
                     </tr>
                     <tr>
                         <th>Weekly Crawl</th>
-                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                        {% if weekly %}
+                            <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                        {% else %}
+                            <td><img src="http://www.clker.com/cliparts/8/3/3/4/1195445190322000997molumen_red_round_error_warning_icon.svg.hi.png"
+                                    width="40" height="40"></td>
+                        {% endif %}
                         <td>{{ weekly_msg }}</td>
 
                     </tr>
