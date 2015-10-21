@@ -13,7 +13,7 @@
 
             <p>
                 Extension:
-                <button type="button" class="btn btn-outline btn-primary" onclick="update_graph('')">All</button>
+                <button type="button" class="btn btn-outline btn-primary" onclick="update_graph('all')">All</button>
                 <button type="button" class="btn btn-outline btn-success" onclick="update_graph('pdf')">PDF
                 </button>
                 <button type="button" class="btn btn-outline btn-warning" onclick="update_graph('doc')">DOC
@@ -30,7 +30,7 @@
     </div>
     <br>
     <hr>
-    <div>
+    <div id="cc">
         <canvas id="canvas" height="200" width="600"></canvas>
     </div>
 
@@ -64,11 +64,14 @@
 
 
         function update_graph(extension) {
+            $('#canvas').remove(); // this is my <canvas> element
+            $('#cc').append('<canvas id="canvas" height="200" width="600"></canvas>');
             var ext_str = "." + extension;
             var date_array = $.parseJSON('{{ date_labels|safe }}');
             var stats = $.parseJSON('{{ extraction_stats|safe }}');
             var updated_stats = [];
             var doc_count = 0;
+
 
             for (var i = 0; i < date_array.length; i++) {
                 doc_count = 0;
@@ -80,6 +83,12 @@
                 }
                 updated_stats.push(doc_count);
             }
+
+            if (extension == 'all') {
+                updated_stats = $.parseJSON('{{ count_stats|safe }}');
+
+            }
+
 
             var ctx = document.getElementById("canvas").getContext("2d");
             ctx.clearRect(0, 0, 600, 200);
