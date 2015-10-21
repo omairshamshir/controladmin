@@ -27,7 +27,7 @@ class CrawlView(View):
         return HttpResponse("control/log/%s" % log_file_tag)
 
     def run_favorite_crawl(self, state, log_file_name):
-        args = "python %s -s %s &> %s" % (FAVORITE_CRAWL_PATH, state, log_file_name)
+        args = "python %s -s %s > %s" % (FAVORITE_CRAWL_PATH, state, log_file_name)
 
         # subprocess.Popen(args, shell=True, env={"PYTHONPATH": "/Users/omairshamshir/Documents/github/puctools/lib",
         #                                         "HOME": "/Users/omairshamshir"}, )
