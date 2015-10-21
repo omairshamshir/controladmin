@@ -58,11 +58,11 @@
                         <th>Favorites Crawl</th>
 
                         {% if fav %}
-                            <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                            <td><img src="http://www.cranitek.com/img/green_tick.png" width="30" height="30"></td>
                         {% else %}
                             <td><img
                                     src="http://www.clker.com/cliparts/8/3/3/4/1195445190322000997molumen_red_round_error_warning_icon.svg.hi.png"
-                                    width="40" height="40"></td>
+                                    width="30" height="30"></td>
                         {% endif %}
                         <td>{{ fav_msg }}</td>
 
@@ -70,37 +70,37 @@
                     <tr>
                         <th>Weekly Crawl</th>
                         {% if weekly %}
-                            <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                            <td><img src="http://www.cranitek.com/img/green_tick.png" width="30" height="30"></td>
                         {% else %}
                             <td><img src="http://www.clker.com/cliparts/8/3/3/4/1195445190322000997molumen_red_round_error_warning_icon.svg.hi.png"
-                                    width="40" height="40"></td>
+                                    width="30" height="30"></td>
                         {% endif %}
                         <td>{{ weekly_msg }}</td>
 
                     </tr>
                     <tr>
                         <th>State Acitve</th>
-                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="30" height="30"></td>
                         <td>Last docket fetched {{ act_days }} days ago</td>
 
                     </tr>
 
                     <tr>
                         <th>Last Dockets Crawled</th>
-                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="30" height="30"></td>
                         <td>{{ latest_counts.docket_count }} dockets fetched in last crawl day</td>
 
                     </tr>
                     <tr>
                         <th>Last Filings Crawled</th>
-                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="30" height="30"></td>
                         <td>{{ latest_counts.filings_count }} filings fetched in last crawl day</td>
 
 
                     </tr>
                     <tr>
                         <th>Last Documents Crawled</th>
-                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="30" height="30"></td>
                         <td>{{ latest_counts.documents_count }} documents fetched in last crawl day</td>
 
 
@@ -108,7 +108,12 @@
 
                     <tr>
                         <th> Document Download</th>
-                        <td><img src="http://www.cranitek.com/img/green_tick.png" width="40" height="40"></td>
+                        {% if dd_count > 0 %}
+                            <td><img src="http://www.cranitek.com/img/green_tick.png" width="30" height="30"></td>
+                        {% else %}
+                            <td><img src="http://www.clker.com/cliparts/8/3/3/4/1195445190322000997molumen_red_round_error_warning_icon.svg.hi.png"
+                                    width="30" height="30"></td>
+                        {% endif %}
                         <td>{{ dd_count }} documents downloaded on {{ dd_date }}</td>
 
                     </tr>
