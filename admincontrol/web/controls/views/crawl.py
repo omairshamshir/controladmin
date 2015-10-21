@@ -32,7 +32,7 @@ class CrawlView(View):
         # subprocess.Popen(args, shell=True, env={"PYTHONPATH": "/Users/omairshamshir/Documents/github/puctools/lib",
         #                                         "HOME": "/Users/omairshamshir"}, )
 
-        subprocess.Popen(args)
+        subprocess.Popen(args, shell=True)
 
         time.sleep(5)
 
