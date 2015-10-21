@@ -19,7 +19,7 @@ class CrawlView(View):
         crawl_type = request.POST.get("crawl_type")
 
         log_file_tag = str(int(time.time()))
-        log_file_name = "static/logs/%s.txt" % log_file_tag
+        log_file_name = "%s.txt" % log_file_tag
 
         if crawl_type.lower() == 'favorites':
             self.run_favorite_crawl(state, log_file_name)
@@ -27,7 +27,7 @@ class CrawlView(View):
         return HttpResponse("control/log/%s" % log_file_tag)
 
     def run_favorite_crawl(self, state, log_file_name):
-        args = "python -u %s -s %s &>%s" % (FAVORITE_CRAWL_PATH, state, log_file_name)
+        args = "python %s -s %s &> %s" % (FAVORITE_CRAWL_PATH, state, log_file_name)
 
         # subprocess.Popen(args, shell=True, env={"PYTHONPATH": "/Users/omairshamshir/Documents/github/puctools/lib",
         #                                         "HOME": "/Users/omairshamshir"}, )
