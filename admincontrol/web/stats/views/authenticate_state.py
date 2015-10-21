@@ -38,7 +38,7 @@ class AuthenticateState(View):
             "data": True,
             "states": STATES,
             "fav": fav_health,
-            "weak": weekly_health,
+            "weekly": weekly_health,
             "is_active": is_active,
             "act_days": days,
             "latest_counts": last_counts,
