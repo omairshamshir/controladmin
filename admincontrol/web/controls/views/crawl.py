@@ -19,7 +19,7 @@ class CrawlView(View):
         crawl_type = request.POST.get("crawl_type")
 
         log_file_tag = str(int(time.time()))
-        log_file_name = "%s.txt" % log_file_tag
+        log_file_name = "/home/arbisoft/logs/catest%s.txt" % log_file_tag
 
         if crawl_type.lower() == 'favorites':
             self.run_favorite_crawl(state, log_file_name)
